@@ -5,7 +5,7 @@ module Center
     # GET /center/users
     # GET /center/users.json
     def index
-      @users = User.all
+      @users = User.paginate(page: params[:page]).order(id: :desc)
     end
 
     # GET /center/users/1

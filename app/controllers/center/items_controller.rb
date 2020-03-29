@@ -5,7 +5,7 @@ module Center
     # GET /items
     # GET /items.json
     def index
-      @items = Item.paginate(page: params[:page])
+      @items = Item.paginate(page: params[:page]).order(id: :desc)
     end
 
     # GET /items/1
