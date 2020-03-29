@@ -13,7 +13,6 @@
 <% if @_current_admin %>
   <p>欢迎<%= @_current_admin.nickname %>
     <%= link_to '退出登录', center_sessions_path, method: :delete %></p>
-<% else %>
   <p>
     <%= link_to '用户', center_users_path %>
   </p>
