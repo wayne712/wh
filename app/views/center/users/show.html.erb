@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+
+<p><%= @user.name %></p>
+<p><%= @user.department %></p>
+<p><%= @user.created_at %></p>
+<%= link_to 'Edit', edit_center_user_path(@user) %> |
+<%= link_to 'Back', center_users_path %>

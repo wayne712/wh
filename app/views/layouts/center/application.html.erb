@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>仓库管理 - 后台</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <% if @_current_admin %>
+  <p>欢迎<%= @_current_admin.nickname %></p>
+    <p><%= link_to '退出登录', center_sessions_path, method: :delete %></p>
+  <% else %>
+
+  <% end %>
+  <p></p>
+    <%= yield %>
+  </body>
+</html>
