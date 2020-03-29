@@ -1,0 +1,2 @@
+module AcquiresHelper
+end

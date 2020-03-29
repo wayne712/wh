@@ -1,0 +1,25 @@
+<%= form_with(model: acquire, local: true) do |form| %>
+  <% if acquire.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(acquire.errors.count, "error") %> prohibited this acquire from being saved:</h2>
+
+      <ul>
+        <% acquire.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <p>
+      <%= form.label '物品' %><br>
+      <%= select_tag 'acquire[item_id]', options_from_collection_for_select(@items, :id, :name) %>
+    </p>
+    <p>
+      <%= form.label '数量' %><br>
+      <%= form.text_field :quantity %>
+    </p>
+    <%= form.submit %>
+  </div>
+<% end %>

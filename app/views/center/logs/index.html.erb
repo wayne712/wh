@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>操作日志</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>目标</th>
+      <th>操作</th>
+      <th>操作值</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @logs.each do |item| %>
+      <tr>
+        <td><%= item.target %></td>
+        <td><%= item.action %></td>
+        <td><%= item.action_value %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @logs %>
+

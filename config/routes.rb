@@ -14,4 +14,5 @@ Rails.application.routes.draw do
     delete :destroy, on: :collection
   end
   resources :acquires, only: %i[index create new show]
+  root 'acquires#index'
 end
