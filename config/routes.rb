@@ -6,5 +6,12 @@ Rails.application.routes.draw do
     end
     resources :users
     resources :items
+    get :logs, to: 'logs#index'
+    resources :acquires
   end
+
+  resources :sessions, only: [:create, :new] do
+    delete :destroy, on: :collection
+  end
+  resources :acquires, only: %i[index create new show]
 end

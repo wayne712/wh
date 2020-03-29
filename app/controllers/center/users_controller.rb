@@ -28,7 +28,7 @@ module Center
       @user = User.new(center_user_params)
 
       if @user.save
-        current_admin.action_logs.create!(target: :user, action: :new, action_value: center_user_params.to_s)
+        current_admin.action_logs.add(target: :user, action: :new, action_value: center_user_params.to_s)
         redirect_to center_users_path, notice: '用户创建成功'
       else
         render :new
@@ -39,7 +39,7 @@ module Center
     # PATCH/PUT /center/users/1.json
     def update
       if @user.update(center_user_params)
-        current_admin.action_logs.create!(target: :user, action: :edit, action_value: center_user_params.to_s)
+        current_admin.action_logs.add(target: :user, action: :edit, action_value: center_user_params.to_s)
         redirect_to center_user_path(@user), notice: '用户编辑成功'
       else
         render :edit
@@ -50,7 +50,7 @@ module Center
     # DELETE /center/users/1.json
     def destroy
       @user.destroy
-      current_admin.action_logs.create!(target: :user, action: :delete, action_value: @user.inspect)
+      current_admin.action_logs.add(target: :user, action: :delete, action_value: @user.inspect)
       respond_to do |format|
         format.html { redirect_to center_users_url, notice: '删除成功' }
         format.json { head :no_content }

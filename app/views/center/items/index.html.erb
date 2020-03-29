@@ -14,9 +14,9 @@
       <tr>
         <td><%= item.name %></td>
         <td><%= item.stock %></td>
-        <td><%= link_to 'Show', center_item_path(item) %></td>
-        <td><%= link_to 'Edit', edit_center_item_path(item) %></td>
-        <td><%= link_to 'Destroy', center_item_path(item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '详情', center_item_path(item) %></td>
+        <td><%= link_to '编辑', edit_center_item_path(item) %></td>
+        <td><%= link_to '删除', center_item_path(item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Item', new_center_item_path %>
+<%= link_to '新增', new_center_item_path %>

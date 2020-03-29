@@ -44,8 +44,8 @@ module Center
     def update
       respond_to do |format|
         if @item.update(item_params)
-          current_admin.action_logs.create!(target: :item, action: :edit, action_value: item_params.to_s)
-          format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+          current_admin.action_logs.add(target: :item, action: :edit, action_value: item_params.to_s)
+          format.html { redirect_to [:center, @item], notice: 'Item was successfully updated.' }
           format.json { render :show, status: :ok, location: @item }
         else
           format.html { render :edit }
@@ -59,8 +59,8 @@ module Center
     def destroy
       @item.destroy
       respond_to do |format|
-        current_admin.action_logs.create!(target: :item, action: :delete, action_value: @item.inspect)
-        format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+        current_admin.action_logs.add(target: :item, action: :delete, action_value: @item.inspect)
+        format.html { redirect_to center_items_path, notice: 'Item was successfully destroyed.' }
         format.json { head :no_content }
       end
     end

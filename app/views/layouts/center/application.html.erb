@@ -11,12 +11,21 @@
 
   <body>
   <% if @_current_admin %>
-  <p>欢迎<%= @_current_admin.nickname %></p>
-    <p><%= link_to '退出登录', center_sessions_path, method: :delete %></p>
-  <% else %>
-
+    <p>欢迎<%= @_current_admin.nickname %>
+      <%= link_to '退出登录', center_sessions_path, method: :delete %></p>
   <% end %>
-  <p></p>
+  <p>
+    <%= link_to '用户', center_users_path %>
+  </p>
+  <p>
+    <%= link_to '物品', center_items_path %>
+  </p>
+  <p>
+    <%= link_to '领用', center_acquires_path %>
+  </p>
+  <p>
+    <%= link_to '日志', center_logs_path %>
+  </p>
     <%= yield %>
   </body>
 </html>
