@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>仓库管理 - 后台</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>仓库管理 - 后台</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-  <% if @_current_admin %>
-    <p>欢迎<%= @_current_admin.nickname %>
-      <%= link_to '退出登录', center_sessions_path, method: :delete %></p>
-  <% end %>
+<body>
+<% if @_current_admin %>
+  <p>欢迎<%= @_current_admin.nickname %>
+    <%= link_to '退出登录', center_sessions_path, method: :delete %></p>
+<% else %>
   <p>
     <%= link_to '用户', center_users_path %>
   </p>
@@ -26,6 +26,7 @@
   <p>
     <%= link_to '日志', center_logs_path %>
   </p>
-    <%= yield %>
-  </body>
+<% end %>
+<%= yield %>
+</body>
 </html>
