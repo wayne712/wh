@@ -35,3 +35,6 @@
 yarn-debug.log*
 .yarn-integrity
 .idea
+.generators
+.rakeTasks
+Gemfile.lock
